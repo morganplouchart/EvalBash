@@ -1,15 +1,13 @@
 #! bin/bash
-#read -p "Voulez-vous installer php? repondez par oui ou non  " decision
-#if [ $decision = "oui" ]
-#then 
-#    sudo apt-get install php7.0 -y
-#else
-#    echo "Ok on install pas php"
-#fi
 
 function menu() {
+    printf '\033[1;34;40m'
+    echo "                                                                    "
+    echo "-----> BIENVENU SUR VOTRE SERVEUR <----"
+    echo "                                                                    "
+    printf '\033[0m'                                                                 
 PS3="Quel est votre choix ? : "
-OPTIONS=("Install php" "install mysql" "Install phpmyadmin" "Quitter votre serveur" "Quit")
+OPTIONS=("Install php" "Install mysql" "Install phpmyadmin" "Quitter le logiciel")
 select opt in "${OPTIONS[@]}"; do
     case $opt in
             "Install php")
@@ -22,7 +20,7 @@ select opt in "${OPTIONS[@]}"; do
             menu
             ;;
             "Install phpmyadmin")
-            sudo apt-get install phpmyadmin -y
+            sudo apt-get install phpmyadmin
             menu
             ;;
             "Quitter le logiciel")
@@ -36,9 +34,6 @@ select opt in "${OPTIONS[@]}"; do
                 menu
             fi
             ;;
-            "Quit")
-                exit
-                ;;
             *) echo "invalid option";;
     esac
 done

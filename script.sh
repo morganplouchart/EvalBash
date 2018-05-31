@@ -14,18 +14,17 @@ function menu {
                 touch Vagrantfile
                 printf '\033[1;34;40m'
                 echo "                                                                    "
-                echo "-----> VOUS AVEZ CHOISI DE CONTINUER A VIVRE DANS MATRIX VIRTUELLE <----"
+                echo "-----> VOUS AVEZ CHOISI DE CONTINUER A VIVRE DANS LA MATRIX VIRTUELLE <----"
                 echo "                                                                    "
                 printf '\033[0m'
                 read -p "Quel est le nom de la VirtualBox à installer ex:ubuntu/xenial64  " box
                 echo "----------------------------------------------------------------"
                 printf '\033[43m'
                 read -p "La box choisi est $box voulez-vous continuez oui ou non ?  " choix
-                echo "----------------------------------------------------------------"
                 printf '\033[0m'
+                echo "----------------------------------------------------------------"
                 if [ $choix = "oui" ]
                 then
-                    echo "-----------------------------------------"
                     read -p "Quel est le nom de votre dossier local ex: data ?  " data
                     mkdir $data
                     echo "-----------------------------------------"
@@ -66,7 +65,7 @@ select opt in "${OPTIONS[@]}"; do
 
             "Pilulle bleu")
                 echo "vous avez pris la pillule bleu, votre vie continu...."
-                exit
+                menu
             ;;
             *) echo "invalid option";;
     esac
